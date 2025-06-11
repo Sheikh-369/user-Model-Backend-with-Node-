@@ -1,4 +1,5 @@
 import { Sequelize,DataTypes } from "sequelize";
+import userModel from "./models/userModel";
 
 const sequelize=new Sequelize("postgresql://postgres.aunmwcpanukqqrnlyvwu:userproject123456789us@aws-0-ap-south-1.pooler.supabase.com:6543/postgres") // connection string
 
@@ -13,5 +14,11 @@ sequelize.authenticate()
 const db={}
 db.sequelize=sequelize
 db.Sequelize=Sequelize
+
+db.users=userModel(sequelize,DataTypes)
+
+sequelize.sync({alter:false}).then(()=>{
+    console.log("Migration Successful!")
+})
 
 export default db
