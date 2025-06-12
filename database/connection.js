@@ -1,5 +1,5 @@
 import { Sequelize,DataTypes } from "sequelize";
-import userModel from "./models/userModel";
+import userModel from "./models/userModel.js";
 
 const sequelize=new Sequelize("postgresql://postgres.aunmwcpanukqqrnlyvwu:userproject123456789us@aws-0-ap-south-1.pooler.supabase.com:6543/postgres") // connection string
 
