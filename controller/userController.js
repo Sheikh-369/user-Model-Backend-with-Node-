@@ -43,5 +43,22 @@ const deleteUser=async (req,res)=>{
     })
 }
 
+const editUser=async(req,res)=>{
+    const id=req.params.id
+    const {userName,userAge,userAddress,userImage}=req.body
+    await User.update({
+        userName,
+        userAge,
+        userAddress,
+        userImage},{
+            where:{
+                id
+            }
+        })
+        res.json({
+            message:"User Updated Successfully!"
+        })
+}
 
-export {fetchUsers,createUser,fetchSingleUser,deleteUser}
+
+export {fetchUsers,createUser,fetchSingleUser,deleteUser,editUser}
